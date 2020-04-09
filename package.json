@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "koa": "^2.7.0",
+    "koa-bodyparser": "^4.3.0",
+    "koa-route": "^3.2.0",
     "koa-static": "^5.0.0",
     "pretty-console-colors": "^1.0.6"
   }

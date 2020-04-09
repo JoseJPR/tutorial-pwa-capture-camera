@@ -10,7 +10,7 @@ const serve = require('koa-static');
 const app = new Koa();
 
 // Declare root folder static
-app.use(serve('.'));
+app.use(serve('./src'));
  
 // Run
 app.listen(8080);

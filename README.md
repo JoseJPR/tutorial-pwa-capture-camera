@@ -1,16 +1,28 @@
 # Tutorial PWA Camera Capture [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
+![IphoneX example](assets/screen.png)
+
+## 🔖 Description
+
 🚀 Increase the characteristics of your PWA with JavaScript. 📷 Activate your device's camera and capture photos easily.
 
-![IphoneX example](src/screen.png)
+## ⛅️ Develop in the Cloud
 
-## Installation
+You can run this project in Gitpod, a one-click online IDE for GitHub:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JoseJPR/tutorial-pwa-capture-camera)
+
+## 📐 How to work with this project
+
+You have to do the following steps to be able to work with this project.
+
+### 1️⃣ Install NodeJS Dependencies
 
 ```bash
 npm i
 ```
 
-## Run
+### 2️⃣ Run
 
 ```bash
 node .
@@ -18,14 +30,28 @@ node .
 
 Open: localhost:8080
 
-## Maintainers
-![JoseJPR Avatar](src/photo-josejpr.png) \
-[@JoseJPR](https://github.com/JoseJPR)
+## 📂 Code scaffolding
 
-## Contact
-🎓 Linkedin: https://www.linkedin.com/in/josejpr/ \
-🐦 Twitter: https://twitter.com/JoseJ_PR \
-📧 Send email to: me@josejpr.com
+```any
+/
+├── assets 🌈               # Images Sources.
+├── src 📦                  # Main App.
+|   ├── css                 # Styles files.
+|   ├── images              # Icons and others png files.
+|   ├── js                  # JS files.
+|   └── ...
+└── ...
+```
+
+## ⛽️ Review and Update Dependences
+
+For review and update all npm dependences of this project you need install in global npm package "npm-check-updates" npm module.
+
+```bash
+# Install and Run
+$npm i -g npm-check-updates
+$ncu
+```
 
 ## License
 [MIT](LICENSE.md)

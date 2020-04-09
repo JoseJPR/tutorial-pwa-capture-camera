@@ -8,47 +8,46 @@ console.log('👋 Log: Hi from NodeJS');
 const fs = require('fs');
 const Koa = require('koa');
 const serve = require('koa-static');
-const Route = require('koa-route');
-const bodyParser = require('koa-bodyparser');
-const app = new Koa();
+const Router = require('@koa/router');
+const multer = require('@koa/multer');
 
-// Use bodyParser Middleware.
-app.use(bodyParser());
+const app = new Koa();
+const router = new Router();
+const upload = multer();
 
 // Function for create file static with filename and content.
-const upload = async (fileName, fileContent) =>
+const saveFile = async (file) =>
   new Promise((resolve, reject) =>
-    fs.writeFile('./src/uploads/' + fileName, Buffer.from(fileContent), (err) =>
+    fs.writeFile('./src/uploads/' + file.originalname, file.buffer, (err) =>
       err ? reject('An error occurred: ' + err.message)
           : resolve({ uploaded: true })));
 
 // Endpoint Upload.
-app.use(Route.post('/upload', async (ctx) => {
-
-  console.log('/upload', ctx.request.body);
-
-  // Control for get fileName and fileContent props of body object.
-  if (
-    !ctx.request.body
-    || !ctx.request.body.fileName
-    || !ctx.request.body.fileContent
-  ) ctx.throw('Cannot find fileName or fileContent props of body object.', 404);
-  
-  // Try create local file with content.
-  try {
-    // console.info('/upload', ctx.request.body);
-    console.log(ctx.request.body.fileContent);
-    const result = await upload(ctx.request.body.fileName, ctx.request.body.fileContent);
-    console.log(result);
-    ctx.body = result;
-  } catch (err) {
-    console.log(err);
-    ctx.throw(err, 500);
+router.post(
+  '/upload',
+  upload.single('photo'),
+  async (ctx) => {
+    // Control for get file on request.
+    if (
+      !ctx.request.file
+    ) ctx.throw('Cannot find file on request');
+    
+    // Try create local file with content.
+    try {
+      ctx.body = await saveFile(ctx.request.file);
+    } catch (err) {
+      console.log(err);
+      ctx.throw(err, 500);
+    }
   }
-}));
+);
 
 // Declare Static Folder.
 app.use(serve('./src'));
+
+// add the router to our app
+app.use(router.routes());
+app.use(router.allowedMethods());
  
 // Run
 app.listen(8080);

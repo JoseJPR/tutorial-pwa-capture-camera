@@ -15,37 +15,33 @@ const app = new Koa();
 // Use bodyParser Middleware.
 app.use(bodyParser());
 
-const upload = async (filename, image) => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(filename, image, (err) => {
-      if (err) {
-        console.error('Error: ', err);
-        reject('An error occurred: ' + err.message);
-      } else {
-        resolve({
-          uploaded: true
-        });
-      }
-    });
-  });
-}
+// Function for create file static with filename and content.
+const upload = async (fileName, fileContent) =>
+  new Promise((resolve, reject) =>
+    fs.writeFile('./src/uploads/' + fileName, fileContent, (err) =>
+      err ? reject('An error occurred: ' + err.message)
+          : resolve({ uploaded: true })));
 
-// Upload endpoint.
+// Endpoint Upload.
 app.use(Route.post('/upload', async (ctx) => {
+
+  // Control for get fileName and fileContent props of body object.
   if (
     !ctx.request.body
-    || !ctx.request.body.image
-  ) return ctx.throw('Cannot find image into body object.', 404);
+    || !ctx.request.body.fileName
+    || !ctx.request.body.fileContent
+  ) ctx.throw('Cannot find fileName or fileContent props of body object.', 404);
   
-  console.info('/upload', ctx.request.body);
+  // Try create local file with content.
   try {
-    ctx.body = await upload(ctx.request.body.filename, ctx.request.body.image);
+    console.info('/upload', ctx.request.body);
+    ctx.body = await upload(ctx.request.body.fileName, ctx.request.body.fileContent);
   } catch (err) {
-    return ctx.throw('An error occurred: ' + err, 500);
+    ctx.throw(err, 500);
   }
 }));
 
-// Declare root folder static.
+// Declare Static Folder.
 app.use(serve('./src'));
  
 // Run

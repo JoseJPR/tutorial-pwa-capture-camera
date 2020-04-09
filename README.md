@@ -1,12 +1,36 @@
-# Tutorial PWA Camera Capture [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+<p align="center">
+  <img src="./assets/banner.png" width="600" />
+</p>
 
-![Screen Demo](assets/camera-capture.gif)
+<h1 align="center">Tutorial PWA Camera Capture</h1>
+
+<p align="center">🚀 Increase the characteristics of your PWA with JavaScript. 📷 Activate your device's camera and capture photos easily.</p>
+
+<p align="center">
+  <a title="MIT License" href="LICENSE.md">
+    <img src="https://img.shields.io/github/license/gridsome/gridsome.svg?style=flat-square&label=License&colorB=6cc24a">
+  </a>
+  <a title="Twitter: JoseJ_PR" href="https://twitter.com/JoseJ_PR">
+    <img src="https://img.shields.io/twitter/url?color=1991DA&label=Twitter%20%40JoseJ_PR&logo=twitter&logoColor=FFFFFF&style=flat-square&url=https%3A%2F%2Ftwitter.com%2FJoseJ_PR">
+  </a>  
+  <a title="Github: Sponsors" href="https://github.com/sponsors/JoseJPR">
+    <img src="https://img.shields.io/twitter/url?color=032f62&label=Github%20Sponsors%20%40JoseJPR&logo=github&logoColor=FFFFFF&style=flat-square&url=https%3A%2F%2Fgithub.com%2Fsponsors%2FJoseJPR">
+  </a>
+  <br />
+  <br />
+</p>
 
 ## 🔖 Description
 
-🚀 Increase the characteristics of your PWA with JavaScript. 📷 Activate your device's camera and capture photos easily.
+In this tutorial I show you how you can create a PWA and how you can capture photos from the camera and store them into a Web Server.
 
 🎁 Bonus: The image will be stored on a NodeJS server using the Koa and Multer libraries.
+
+## 📹 Video Demo
+
+The following video shows how yo can launch this project and test it.
+
+[![Video](./assets/youtube.svg)](WIP)
 
 ## ⛅️ Develop in the Cloud
 

@@ -1,0 +1,29 @@
+<svg id="Grupo_1" data-name="Grupo 1" xmlns="http://www.w3.org/2000/svg" width="157.734" height="31.74" viewBox="0 0 1143 230">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        font-size: 29px;
+        font-family: "Futura PT";
+      }
+
+      .cls-4 {
+        fill: #f2bfbf;
+      }
+    </style>
+  </defs>
+  <rect id="Rectángulo_redondeado_1" data-name="Rectángulo redondeado 1" class="cls-1" width="1142.91" height="230.125" rx="20" ry="20"/>
+  <path id="Polígono_1" data-name="Polígono 1" class="cls-2" d="M209.055,116.2L81.163,190.034V42.357Z"/>
+  <text id="Watch_in_Youtube" data-name="Watch in Youtube" class="cls-3" transform="translate(255.083 155.552) scale(4.118)">Watch <tspan class="cls-4">in Youtube</tspan></text>
+</svg>

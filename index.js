@@ -18,12 +18,14 @@ app.use(bodyParser());
 // Function for create file static with filename and content.
 const upload = async (fileName, fileContent) =>
   new Promise((resolve, reject) =>
-    fs.writeFile('./src/uploads/' + fileName, fileContent, (err) =>
+    fs.writeFile('./src/uploads/' + fileName, Buffer.from(fileContent), (err) =>
       err ? reject('An error occurred: ' + err.message)
           : resolve({ uploaded: true })));
 
 // Endpoint Upload.
 app.use(Route.post('/upload', async (ctx) => {
+
+  console.log('/upload', ctx.request.body);
 
   // Control for get fileName and fileContent props of body object.
   if (
@@ -34,9 +36,13 @@ app.use(Route.post('/upload', async (ctx) => {
   
   // Try create local file with content.
   try {
-    console.info('/upload', ctx.request.body);
-    ctx.body = await upload(ctx.request.body.fileName, ctx.request.body.fileContent);
+    // console.info('/upload', ctx.request.body);
+    console.log(ctx.request.body.fileContent);
+    const result = await upload(ctx.request.body.fileName, ctx.request.body.fileContent);
+    console.log(result);
+    ctx.body = result;
   } catch (err) {
+    console.log(err);
     ctx.throw(err, 500);
   }
 }));

@@ -6,6 +6,8 @@
 
 🚀 Increase the characteristics of your PWA with JavaScript. 📷 Activate your device's camera and capture photos easily.
 
+🎁 Bonus: The image will be stored on a NodeJS server using the Koa and Multer libraries.
+
 ## ⛅️ Develop in the Cloud
 
 You can run this project in Gitpod, a one-click online IDE for GitHub:
